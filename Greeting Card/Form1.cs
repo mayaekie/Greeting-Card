@@ -26,6 +26,21 @@ namespace Greeting_Card
             g.Clear(Color.White);
             g.DrawEllipse(purplePen, 85, 85, 175, 175);
             g.FillEllipse(purpleBrush, 85, 85, 175, 175);
+
+            Graphics G = this.CreateGraphics();
+            Pen brownPen = new Pen(Color.Brown, 10);
+            SolidBrush brownBrush = new SolidBrush(Color.Brown);
+
+            
+            G.DrawArc(brownPen,79, 78, 189, 189, 0, 180);
+            G.DrawArc(brownPen, 78, 77, 189, 225, 0, 180);
+            G.FillArc(brownBrush, 78, 77, 189, 225, 0, 180);
+
+
+            Font drawFont2 = new Font("Arial", 30, FontStyle.Regular);
+            SolidBrush drawBrush2 = new SolidBrush(Color.Red);
+            g.DrawString("", drawFont2, drawBrush2, 95, 255);
+
         }
 
 
