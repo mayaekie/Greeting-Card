@@ -15,37 +15,45 @@ namespace Greeting_Card
         public Form1()
         {
             InitializeComponent();
+            this.Width = 500;
+            this.Height = 500;
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
-            Pen purplePen = new Pen(Color.DarkOrchid, 20);
-            SolidBrush purpleBrush = new SolidBrush(Color.DarkOrchid);
+            Pen bluePen = new Pen(Color.DarkBlue);                  //paints the exterior (outline)
+            Brush blueBrush = new SolidBrush(Color.DarkBlue);       //paints the interior (fills in)
+            Pen skyPen = new Pen(Color.LightSkyBlue);
+            Brush skyBrush = new SolidBrush(Color.LightSkyBlue);
+            Pen brownPen = new Pen(Color.BurlyWood);
+            Brush brownBrush = new SolidBrush(Color.BurlyWood);
+
 
             g.Clear(Color.White);
-            g.DrawEllipse(purplePen, 85, 85, 175, 175);
-            g.FillEllipse(purpleBrush, 85, 85, 175, 175);
+            g.DrawRectangle(bluePen, 0, 0, 500, 275);
+            g.FillRectangle(blueBrush, 0, 0, 500, 275);
 
-            Graphics G = this.CreateGraphics();
-            Pen brownPen = new Pen(Color.Brown, 10);
-            SolidBrush brownBrush = new SolidBrush(Color.Brown);
+            g.DrawEllipse(skyPen, 140, 55, 200, 200);
+            g.FillEllipse(skyBrush, 140, 55, 200, 200);
 
-            
-            G.DrawArc(brownPen,79, 78, 189, 189, 0, 180);
-            G.DrawArc(brownPen, 78, 77, 189, 225, 0, 180);
-            G.FillArc(brownBrush, 78, 77, 189, 225, 0, 180);
+            //create points that define a polygon
+            Point point1 = new Point(140,325);
+            Point point2 = new Point(190, 255);
+            Point point3 = new Point(290, 255);
+            Point point4 = new Point(340, 325);
+            Point[] curvePoints =
+                {
+                    point1,
+                    point2,
+                    point3,
+                    point4
+                };
+
+            g.DrawPolygon(brownPen, curvePoints);
+            g.FillPolygon(brownBrush, curvePoints);
 
 
-            Font drawFont2 = new Font("Arial", 30, FontStyle.Regular);
-            SolidBrush drawBrush2 = new SolidBrush(Color.Red);
-            g.DrawString("", drawFont2, drawBrush2, 95, 255);
-
-        }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
         }
     }
